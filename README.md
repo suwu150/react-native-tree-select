@@ -4,6 +4,13 @@ react-native-tree-select
 ----
 ![The final rendering](https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-tree-select.gif?raw=true)
 
+项目结构
+```js
+--components： treeSelect组件
+--treeSelectExample： 组件演示代码
+--.gitignore：git忽略文件
+--README.md：说明文档
+```
 Example usage: 
 --------------------------------------- 
 1.基本用法     
