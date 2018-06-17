@@ -1,29 +1,3 @@
-# react-native-tree-select
-react-native-tree-select
-树结构选择组件
-----
-![The final rendering](https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-tree-select.gif?raw=true)
-
-Example usage: 
---------------------------------------- 
-1.基本用法     
-
-```javascript
-import TreeSelect from './components/treeSelect';
-
-   ...
-  render() {
-    return (
-      <TreeSelect
-        data={treeselectData}
-        onClick={this._onClick}
-        onClickLeaf={this._onClickLeaf}
-      />
-    );
-  }
-```
-注意：数据结构如下面形式：
-```json
 [
   {
     "id":"A",
@@ -118,30 +92,3 @@ import TreeSelect from './components/treeSelect';
     ]
   }
 ]
-
-```
-2.传递的Props:   
----------------------------------------
-
-|Props|Explain|type|require|default|          
-|:-------|:--------|:--------|:-------|:----------|
-|data|数据，树结构数据|array|yes|[]|    
-|onClick|点击时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|    
-|onClickLeaf|点击叶子节点时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|
-
-3.本地运行
-在本地运行，首先得克隆该项目，使用下面命令进行克隆
-  先克隆该项目
-  ```
-  git clone https://github.com/suwu150/react-native-tree-select.git
-  ```
-  然后进入项目，cd treeSelectExample进入到演示项目，通过以下命令安装依赖
-  ```
-  npm install
-  ```
-  通过以下命令运行项目
-  ```
-  react-native run-ios
-  ```
-4.组件简介
-能够按照数据结构进行展开树状结构，通常用来进行展示具有明显层级关系的数据结构
