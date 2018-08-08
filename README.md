@@ -2,7 +2,7 @@
 react-native-tree-select
 树结构选择组件
 ----
-![The final rendering](https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-tree-select.gif?raw=true)
+![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true)
 
 项目结构
 ```js
