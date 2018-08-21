@@ -13,10 +13,21 @@ react-native-tree-select
 ```
 Example usage: 
 --------------------------------------- 
-1.基本用法     
+1.基本用法    
+ 
+ 首先能够通过如下命令进行安装  
+
+```$xslt
+npm i react-native-tree-select
+``` 
+然后通过下面命令进行导入：
+```$xslt
+import TreeSelect from 'react-native-tree-select';
+```
+如下代码是简单的使用
 
 ```javascript
-import TreeSelect from './components/treeSelect';
+import TreeSelect from 'react-native-tree-select';
 
    ...
   render() {

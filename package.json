@@ -1,14 +1,14 @@
 {
-  "name": "react-native-string-distinction",
-  "version": "1.0.3",
-  "description": "react-native-string-distinction,divide the character string according to a certain character and display it in different styles after segmentation",
+  "name": "react-native-tree-select",
+  "version": "1.0.0",
+  "description": "select tree",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/suwu150/react-native-string-distinction.git"
+    "url": "git+https://github.com/suwu150/react-native-tree-select.git"
   },
   "keywords": [
     "react-native",
@@ -19,7 +19,7 @@
   "author": "jkwu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/suwu150/react-native-string-distinction/issues"
+    "url": "https://github.com/suwu150/react-native-tree-select/issues"
   },
-  "homepage": "https://github.com/suwu150/react-native-string-distinction#readme"
+  "homepage": "https://github.com/suwu150/react-native-tree-select#readme"
 }
