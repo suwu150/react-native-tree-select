@@ -23,6 +23,7 @@ import TreeSelect from './components/treeSelect';
     return (
       <TreeSelect
         data={treeselectData}
+        isOpen
         onClick={this._onClick}
         onClickLeaf={this._onClickLeaf}
       />
@@ -135,6 +136,7 @@ import TreeSelect from './components/treeSelect';
 |data|数据，树结构数据|array|yes|[]|    
 |onClick|点击时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|    
 |onClickLeaf|点击叶子节点时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|
+|isOpen|是否默认打开所有的节点|boolean|no|false|
 
 3.本地运行
 在本地运行，首先得克隆该项目，使用下面命令进行克隆

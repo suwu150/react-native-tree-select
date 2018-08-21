@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { breadthFirstRecursion } from '../utils/menutransform';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
   collapseIcon: {
     width: 0,
     height: 0,
+    marginRight: 2,
     borderStyle: 'solid',
   }
 });
@@ -26,10 +28,18 @@ export default class TreeSelect extends Component {
     super(props);
     this.routes = [];
     this.state = {
-      nodesStatus: null,
+      nodesStatus: this._initNodesStatus(),
       currentNode: null
     };
   }
+
+  _initNodesStatus = () => {
+    const { isOpen, data } = this.props;
+    const nodesStatus = new Map();
+    if (!isOpen) return nodesStatus;
+    breadthFirstRecursion(data).map(item => nodesStatus.set(item.id, true));
+    return nodesStatus;
+  };
 
   _find = (data, id) => {
     const stack = [];
@@ -88,6 +98,7 @@ export default class TreeSelect extends Component {
 
   _renderRow = ({ item }) => {
     if (item && item.children && item.children.length) {
+      console.log(this.state.nodesStatus && this.state.nodesStatus.get(item && item.id));
       const isOpen = this.state.nodesStatus && this.state.nodesStatus.get(item && item.id) || false;
       const collapseIcon = isOpen ? {
         borderRightWidth: 5,
@@ -116,7 +127,7 @@ export default class TreeSelect extends Component {
             }}
             >
               <View style={[styles.collapseIcon, collapseIcon]} />
-              <Text style={{ fontSize: 14, }}>{item.id}</Text>
+              <Text style={{ fontSize: 14 }}>{item.id}</Text>
               <Text style={styles.textName}>{item.name}</Text>
             </View>
           </TouchableOpacity>
