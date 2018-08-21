@@ -1,0 +1,25 @@
+{
+  "name": "react-native-string-distinction",
+  "version": "1.0.3",
+  "description": "react-native-string-distinction,divide the character string according to a certain character and display it in different styles after segmentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suwu150/react-native-string-distinction.git"
+  },
+  "keywords": [
+    "react-native",
+    "string",
+    "Text",
+    "react"
+  ],
+  "author": "jkwu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suwu150/react-native-string-distinction/issues"
+  },
+  "homepage": "https://github.com/suwu150/react-native-string-distinction#readme"
+}

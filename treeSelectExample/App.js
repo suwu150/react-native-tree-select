@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import TreeSelect from './components/treeSelect';
+import TreeSelect from 'react-native-tree-select';
 import treeselectData from './treselect.json';
 
 export default class App extends Component {
