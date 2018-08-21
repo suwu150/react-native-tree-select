@@ -37,7 +37,8 @@ export default class App extends Component {
         <View style={{ width: '100%',  flex: 1 }}>
           <TreeSelect
             data={treeselectData}
-            isOpen
+            // isOpen
+            openIds={['A01']}
             onClick={this._onClick}
             onClickLeaf={this._onClickLeaf}
           />

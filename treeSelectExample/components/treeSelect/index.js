@@ -34,9 +34,17 @@ export default class TreeSelect extends Component {
   }
 
   _initNodesStatus = () => {
-    const { isOpen, data } = this.props;
+    const { isOpen = false, data, openIds = [] } = this.props;
     const nodesStatus = new Map();
-    if (!isOpen) return nodesStatus;
+    if (!isOpen) {
+      if (openIds && openIds.length) {
+        for (let id of openIds) { // eslint-disable-line
+          const routes = this._find(data, id);
+          routes.map(parent => nodesStatus.set(parent.id, true));
+        }
+      }
+      return nodesStatus;
+    }
     breadthFirstRecursion(data).map(item => nodesStatus.set(item.id, true));
     return nodesStatus;
   };
@@ -98,7 +106,6 @@ export default class TreeSelect extends Component {
 
   _renderRow = ({ item }) => {
     if (item && item.children && item.children.length) {
-      console.log(this.state.nodesStatus && this.state.nodesStatus.get(item && item.id));
       const isOpen = this.state.nodesStatus && this.state.nodesStatus.get(item && item.id) || false;
       const collapseIcon = isOpen ? {
         borderRightWidth: 5,
