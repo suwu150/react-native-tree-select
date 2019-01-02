@@ -38,6 +38,7 @@ export default class App extends Component {
           <TreeSelect
             data={treeselectData}
             // isOpen
+            isShowTreeId={false}
             openIds={['A01']}
             onClick={this._onClick}
             onClickLeaf={this._onClickLeaf}
