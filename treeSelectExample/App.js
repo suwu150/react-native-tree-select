@@ -40,6 +40,16 @@ export default class App extends Component {
             isOpen
             openIds={['A01']}
             isShowTreeId={false}
+            itemStyle={{
+              // backgroudColor: '#8bb0ee',
+              fontSize: 12,
+              color: '#995962'
+            }}
+            selectedItemStyle={{
+              backgroudColor: '#f7edca',
+              fontSize: 16,
+              color: '#171e99'
+            }}
             onClick={this._onClick}
             onClickLeaf={this._onClickLeaf}
           />

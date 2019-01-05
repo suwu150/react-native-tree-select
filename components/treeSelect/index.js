@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TextInput, FlatList, Text, TouchableOpacity } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { breadthFirstRecursion } from '../utils/menutransform';
 
 const styles = StyleSheet.create({
@@ -29,7 +30,8 @@ export default class TreeSelect extends Component {
     this.routes = [];
     this.state = {
       nodesStatus: this._initNodesStatus(),
-      currentNode: null
+      currentNode: null,
+      searchValue: ''
     };
   }
 
@@ -105,6 +107,14 @@ export default class TreeSelect extends Component {
   };
 
   _renderRow = ({ item }) => {
+    const { isShowTreeId = false, selectedItemStyle, itemStyle } = this.props;
+    const { backgroudColor, fontSize, color } = itemStyle && itemStyle;
+
+    const selectedBackgroudColor = selectedItemStyle && selectedItemStyle.backgroudColor;
+    const selectedFontSize = selectedItemStyle && selectedItemStyle.fontSize;
+    const selectedColor = selectedItemStyle && selectedItemStyle.color;
+    const isCurrentNode = this.state.currentNode === item.id;
+
     if (item && item.children && item.children.length) {
       const isOpen = this.state.nodesStatus && this.state.nodesStatus.get(item && item.id) || false;
       const collapseIcon = isOpen ? {
@@ -127,28 +137,31 @@ export default class TreeSelect extends Component {
           <TouchableOpacity onPress={(e) => this._onPressCollapse({ e, item })} >
             <View style={{
               flexDirection: 'row',
-              backgroundColor: this.state.currentNode === item.id ? '#FFEDCE' : '#fff',
+              backgroundColor: isCurrentNode ? selectedBackgroudColor || '#FFEDCE' : backgroudColor || '#fff',
               marginBottom: 2,
               height: 30,
               alignItems: 'center'
             }}
             >
               <View style={[styles.collapseIcon, collapseIcon]} />
-              <Text style={{ fontSize: 14 }}>{item.id}</Text>
-              <Text style={styles.textName}>{item.name}</Text>
+              {
+                isShowTreeId && <Text style={{ fontSize: 14, marginLeft: 4 }}>{item.id}</Text>
+              }
+              <Text style={[styles.textName, isCurrentNode ?
+                { fontSize: selectedFontSize, color: selectedColor } : { fontSize, color }]}>{item.name}</Text>
             </View>
           </TouchableOpacity>
           {
             !isOpen ? null :
-            <FlatList
-              keyExtractor={(childrenItem, i) => i.toString()}
-              style={{ flex: 1, marginLeft: 15 }}
-              onEndReachedThreshold={0.01}
-              {...this.props}
-              data={item.children}
-              extraData={this.state}
-              renderItem={this._renderRow}
-            />
+              <FlatList
+                keyExtractor={(childrenItem, i) => i.toString()}
+                style={{ flex: 1, marginLeft: 15 }}
+                onEndReachedThreshold={0.01}
+                {...this.props}
+                data={item.children}
+                extraData={this.state}
+                renderItem={this._renderRow}
+              />
           }
         </View>
       );
@@ -157,21 +170,62 @@ export default class TreeSelect extends Component {
       <TouchableOpacity onPress={(e) => this._onClickLeaf({ e, item })}>
         <View style={{
           flexDirection: 'row',
-          backgroundColor: this.state.currentNode === item.id ? '#FFEDCE' : '#fff',
+          backgroundColor: isCurrentNode ? selectedBackgroudColor || '#FFEDCE' : backgroudColor || '#fff',
           marginBottom: 2,
           height: 30,
           alignItems: 'center'
         }}
         >
-          <Text style={styles.textName}>{item.name}</Text>
+          <Text
+            style={[styles.textName, isCurrentNode ?
+              { fontSize: selectedFontSize, color: selectedColor } : { fontSize, color }]}
+          >{item.name}</Text>
         </View>
       </TouchableOpacity>
     );
   };
+
+  _onSearch = () => {
+    const { searchValue } = this.state;
+
+  };
+
+  _onChangeText = (key, value) => {
+    this.setState({
+      [key]: value
+    });
+  };
+
+  _renderSearchBar = () => {
+    const { searchValue } = this.state;
+    return (
+      <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 5,
+        borderColor: '#555', marginHorizontal: 10, }}>
+        <TextInput
+          style={{ height: 38, paddingHorizontal: 5, flex: 1 }}
+          value={searchValue}
+          autoCapitalize="none"
+          underlineColorAndroid="transparent"
+          autoCorrect={false}
+          blurOnSubmit
+          clearButtonMode="while-editing"
+          placeholder="搜索节点"
+          placeholderTextColor="#e9e5e1"
+          onChangeText={(text) => this._onChangeText('searchValue', text)}
+        />
+        <TouchableOpacity onPress={this._onSearch}>
+          <Ionicons name="ios-search" style={{ fontSize: 25, marginHorizontal: 5 }} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
   render() {
     const { data } = this.props;
     return (
       <View style={styles.container}>
+        {/*{*/}
+        {/*this._renderSearchBar()*/}
+        {/*}*/}
         <FlatList
           keyExtractor={(item, i) => i.toString()}
           style={{ flex: 1, marginVertical: 5, paddingHorizontal: 15 }}
