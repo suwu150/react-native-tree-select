@@ -1,15 +1,13 @@
-## react-native-tree-select
+# react-native-tree-select
+
 
 react-native-tree-select
 树结构选择组件
 
+
 ----
-
-<center style="display: flex; flex-direction: row;">
-<img src="https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true" />
-<img src="https://github.com/suwu150/react-native-tree-select/blob/master/tree-select-style.gif?raw=true" />
-</center>
-
+![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true)
+![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/tree-select-style.gif?raw=true)
 
 项目结构
 
