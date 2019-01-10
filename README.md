@@ -5,7 +5,7 @@ react-native-tree-select
 
 ----
 
-<center>
+<center style="display: flex; flex-direction: roe;">
 <img src="https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true" />
 <img src="https://github.com/suwu150/react-native-tree-select/blob/master/tree-select-style.gif?raw=true" />
 </center>
