@@ -1,17 +1,27 @@
-# react-native-tree-select
+## react-native-tree-select
+
 react-native-tree-select
 树结构选择组件
+
 ----
-![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true)
-![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/tree-select-style.gif?raw=true)
+
+<center>
+<img src="https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true" />
+<img src="https://github.com/suwu150/react-native-tree-select/blob/master/tree-select-style.gif?raw=true" />
+</center>
+
 
 项目结构
+
 ```js
+
 --components： treeSelect组件
 --treeSelectExample： 组件演示代码
 --.gitignore：git忽略文件
 --README.md：说明文档
+
 ```
+
 Example usage: 
 --------------------------------------- 
 1.基本用法    
@@ -167,7 +177,7 @@ import TreeSelect from 'react-native-tree-select';
 |selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}|
 
 3.本地运行
-在本地运行，首先得克隆该项目，使用下面命令进行克隆
+在本地运行，首先得克隆该项目，使用下面命令进行克隆，[克隆地址](https://github.com/suwu150/react-native-tree-select)
   先克隆该项目
   ```
   git clone https://github.com/suwu150/react-native-tree-select.git
