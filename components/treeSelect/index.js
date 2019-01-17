@@ -106,9 +106,35 @@ export default class TreeSelect extends Component {
     });
   };
 
+  _renderTreeNodeIcon = (isOpen) => {
+    const { isShowTreeId = false, selectedItemStyle, itemStyle, treeNodeStyle } = this.props;
+    const collapseIcon = isOpen ? {
+      borderRightWidth: 5,
+      borderRightColor: 'transparent',
+      borderLeftWidth: 5,
+      borderLeftColor: 'transparent',
+      borderTopWidth: 10,
+      borderTopColor: 'black',
+    } : {
+      borderBottomWidth: 5,
+      borderBottomColor: 'transparent',
+      borderTopWidth: 5,
+      borderTopColor: 'transparent',
+      borderLeftWidth: 10,
+      borderLeftColor: 'black',
+    };
+    const openIcon = treeNodeStyle && treeNodeStyle.openIcon;
+    const closeIcon = treeNodeStyle && treeNodeStyle.closeIcon;
+
+    return openIcon && closeIcon ? <View>{isOpen ? openIcon : closeIcon}</View> :
+      <View style={[styles.collapseIcon, collapseIcon]} />;
+  };
+
   _renderRow = ({ item }) => {
-    const { isShowTreeId = false, selectedItemStyle, itemStyle } = this.props;
+    const { isShowTreeId = false, selectedItemStyle, itemStyle, treeNodeStyle } = this.props;
     const { backgroudColor, fontSize, color } = itemStyle && itemStyle;
+    const openIcon = treeNodeStyle && treeNodeStyle.openIcon;
+    const closeIcon = treeNodeStyle && treeNodeStyle.closeIcon;
 
     const selectedBackgroudColor = selectedItemStyle && selectedItemStyle.backgroudColor;
     const selectedFontSize = selectedItemStyle && selectedItemStyle.fontSize;
@@ -117,21 +143,6 @@ export default class TreeSelect extends Component {
 
     if (item && item.children && item.children.length) {
       const isOpen = this.state.nodesStatus && this.state.nodesStatus.get(item && item.id) || false;
-      const collapseIcon = isOpen ? {
-        borderRightWidth: 5,
-        borderRightColor: 'transparent',
-        borderLeftWidth: 5,
-        borderLeftColor: 'transparent',
-        borderTopWidth: 10,
-        borderTopColor: 'black',
-      } : {
-        borderBottomWidth: 5,
-        borderBottomColor: 'transparent',
-        borderTopWidth: 5,
-        borderTopColor: 'transparent',
-        borderLeftWidth: 10,
-        borderLeftColor: 'black',
-      };
       return (
         <View>
           <TouchableOpacity onPress={(e) => this._onPressCollapse({ e, item })} >
@@ -143,7 +154,7 @@ export default class TreeSelect extends Component {
               alignItems: 'center'
             }}
             >
-              <View style={[styles.collapseIcon, collapseIcon]} />
+              { this._renderTreeNodeIcon(isOpen) }
               {
                 isShowTreeId && <Text style={{ fontSize: 14, marginLeft: 4 }}>{item.id}</Text>
               }

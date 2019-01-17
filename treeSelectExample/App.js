@@ -5,8 +5,9 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import TreeSelect from 'react-native-tree-select';
+import Icon from 'react-native-vector-icons/Ionicons';
 import treeselectData from './treselect.json';
 
 export default class App extends Component {
@@ -52,6 +53,18 @@ export default class App extends Component {
             }}
             onClick={this._onClick}
             onClickLeaf={this._onClickLeaf}
+            treeNodeStyle={{
+              // openIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-down" />,
+              // closeIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-forward" />
+              openIcon: <Image
+                resizeMode="stretch"
+                style={{ width: 18, height: 18 }}
+                source={require('./images/down-circle.png')} />,
+              closeIcon: <Image
+                resizeMode="stretch"
+                style={{ width: 18, height: 18 }}
+                source={require('./images/right-circle.png')} />
+            }}
           />
         </View>
       </View>

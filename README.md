@@ -8,6 +8,7 @@ react-native-tree-select
 ----
 ![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true)
 ![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/tree-select-style.gif?raw=true)
+![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/shareComponet.gif?raw=true)
 
 项目结构
 
@@ -41,24 +42,36 @@ import TreeSelect from 'react-native-tree-select';
    ...
   render() {
     return (
-      <TreeSelect
-        data={treeselectData}
-        isOpen
-        openIds={['A01']}
-        isShowTreeId={false}
-        itemStyle={{
-          // backgroudColor: '#8bb0ee',
-          fontSize: 12,
-          color: '#995962'
-        }}
-        selectedItemStyle={{
-          backgroudColor: '#f7edca',
-          fontSize: 16,
-          color: '#171e99'
-        }}
-        onClick={this._onClick}
-        onClickLeaf={this._onClickLeaf}
-      />
+    <TreeSelect
+      data={treeselectData}
+      isOpen
+      openIds={['A01']}
+      isShowTreeId={false}
+      itemStyle={{
+        // backgroudColor: '#8bb0ee',
+        fontSize: 12,
+        color: '#995962'
+      }}
+      selectedItemStyle={{
+        backgroudColor: '#f7edca',
+        fontSize: 16,
+        color: '#171e99'
+      }}
+      onClick={this._onClick}
+      onClickLeaf={this._onClickLeaf}
+      treeNodeStyle={{
+        // openIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-down" />,
+        // closeIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-forward" />
+        openIcon: <Image
+          resizeMode="stretch"
+          style={{ width: 18, height: 18 }}
+          source={require('./images/down-circle.png')} />,
+        closeIcon: <Image
+          resizeMode="stretch"
+          style={{ width: 18, height: 18 }}
+          source={require('./images/right-circle.png')} />
+      }}
+    />
     );
   }
 ```
@@ -173,6 +186,7 @@ import TreeSelect from 'react-native-tree-select';
 |isShowTreeId|指定是否显示节点id|boolean|no|false|
 |itemStyle|指定item项的样式,其中包含三个子项backgroudColor：背景的颜色, fontSize：字体大小, color：字体的颜色|css style|no|{}|
 |selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}|
+|treeNodeStyle|指定节点处的图标样式，包含两个属性openIcon，closeIcon,支持传icon和image类型|object|no|null|
 
 3.本地运行
 在本地运行，首先得克隆该项目，使用下面命令进行克隆，[克隆地址](https://github.com/suwu150/react-native-tree-select)
