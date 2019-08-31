@@ -20,15 +20,15 @@ react-native-tree-select
 
 ```
 
-Example usage: 
---------------------------------------- 
-1.基本用法    
- 
- 首先能够通过如下命令进行安装  
+Example usage:
+---------------------------------------
+1.基本用法
+
+ 首先能够通过如下命令进行安装
 
 ```$xslt
 npm i react-native-tree-select
-``` 
+```
 然后通过下面命令进行导入：
 ```$xslt
 import TreeSelect from 'react-native-tree-select';
@@ -41,36 +41,37 @@ import TreeSelect from 'react-native-tree-select';
    ...
   render() {
     return (
-    <TreeSelect
-      data={treeselectData}
-      isOpen
-      openIds={['A01']}
-      isShowTreeId={false}
-      itemStyle={{
-        // backgroudColor: '#8bb0ee',
-        fontSize: 12,
-        color: '#995962'
-      }}
-      selectedItemStyle={{
-        backgroudColor: '#f7edca',
-        fontSize: 16,
-        color: '#171e99'
-      }}
-      onClick={this._onClick}
-      onClickLeaf={this._onClickLeaf}
-      treeNodeStyle={{
-        // openIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-down" />,
-        // closeIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-forward" />
-        openIcon: <Image
-          resizeMode="stretch"
-          style={{ width: 18, height: 18 }}
-          source={require('./images/down-circle.png')} />,
-        closeIcon: <Image
-          resizeMode="stretch"
-          style={{ width: 18, height: 18 }}
-          source={require('./images/right-circle.png')} />
-      }}
-    />
+        <TreeSelect
+            data={treeselectData}
+            // isOpen
+            // openIds={['A01']}
+            defaultSelectedId={['B062']}
+            isShowTreeId={false}
+            itemStyle={{
+              // backgroudColor: '#8bb0ee',
+              fontSize: 12,
+              color: '#995962'
+            }}
+            selectedItemStyle={{
+              backgroudColor: '#f7edca',
+              fontSize: 16,
+              color: '#171e99'
+            }}
+            onClick={this._onClick}
+            onClickLeaf={this._onClickLeaf}
+            treeNodeStyle={{
+              // openIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-down" />,
+              // closeIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-forward" />
+              openIcon: <Image
+                resizeMode="stretch"
+                style={{ width: 18, height: 18 }}
+                source={require('./images/down-circle.png')} />,
+              closeIcon: <Image
+                resizeMode="stretch"
+                style={{ width: 18, height: 18 }}
+                source={require('./images/right-circle.png')} />
+            }}
+          />
     );
   }
 ```
@@ -172,16 +173,17 @@ import TreeSelect from 'react-native-tree-select';
 ]
 
 ```
-2.传递的Props:   
+2.传递的Props:
 ---------------------------------------
 
-|Props|Explain|type|require|default|          
+|Props|Explain|type|require|default|
 |:-------|:--------|:--------|:-------|:----------|
-|data|数据，树结构数据|array|yes|[]|    
-|onClick|点击时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|    
+|data|数据，树结构数据|array|yes|[]|
+|onClick|点击时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|
 |onClickLeaf|点击叶子节点时的事件，返回点击的节点和节点路径{ item, routes }|function|no|no|
 |isOpen|是否默认打开所有的节点,优先级高于openIds，当true时忽略openIds|boolean|no|false|
 |openIds|指定默认打开的节点id|array|no|[]|
+|defaultSelectedId|指定默认选中的节点id|array|no|[]|
 |isShowTreeId|指定是否显示节点id|boolean|no|false|
 |itemStyle|指定item项的样式,其中包含三个子项backgroudColor：背景的颜色, fontSize：字体大小, color：字体的颜色|css style|no|{}|
 |selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}|

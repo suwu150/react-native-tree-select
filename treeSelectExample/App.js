@@ -35,11 +35,12 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={{ marginVertical: 30 }}><Text>{this.state.result}</Text></View>
-        <View style={{ width: '100%',  flex: 1 }}>
+        <View style={{ width: '100%', flex: 1 }}>
           <TreeSelect
             data={treeselectData}
-            isOpen
-            openIds={['A01']}
+            // isOpen
+            // openIds={['A01']}
+            defaultSelectedId={['B062']}
             isShowTreeId={false}
             itemStyle={{
               // backgroudColor: '#8bb0ee',

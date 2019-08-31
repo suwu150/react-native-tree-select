@@ -30,17 +30,24 @@ export default class TreeSelect extends Component {
     this.routes = [];
     this.state = {
       nodesStatus: this._initNodesStatus(),
-      currentNode: null,
+      currentNode: props.defaultSelectedId && props.defaultSelectedId[0] || null,
       searchValue: ''
     };
   }
 
   _initNodesStatus = () => {
-    const { isOpen = false, data, openIds = [] } = this.props;
+    const { isOpen = false, data, openIds = [], defaultSelectedId = [] } = this.props;
     const nodesStatus = new Map();
     if (!isOpen) {
       if (openIds && openIds.length) {
         for (let id of openIds) { // eslint-disable-line
+          const routes = this._find(data, id);
+          routes.map(parent => nodesStatus.set(parent.id, true));
+        }
+      }
+      // 设置默认选中时父节点的展开操作
+      if (defaultSelectedId && defaultSelectedId.length) {
+        for (let id of defaultSelectedId) { // eslint-disable-line
           const routes = this._find(data, id);
           routes.map(parent => nodesStatus.set(parent.id, true));
         }
