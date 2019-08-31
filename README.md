@@ -47,6 +47,8 @@ import TreeSelect from 'react-native-tree-select';
             // openIds={['A01']}
             defaultSelectedId={['B062']}
             isShowTreeId={false}
+            // selectType="single"
+            selectType="multiple"
             itemStyle={{
               // backgroudColor: '#8bb0ee',
               fontSize: 12,
@@ -184,6 +186,7 @@ import TreeSelect from 'react-native-tree-select';
 |isOpen|是否默认打开所有的节点,优先级高于openIds，当true时忽略openIds|boolean|no|false|
 |openIds|指定默认打开的节点id|array|no|[]|
 |defaultSelectedId|指定默认选中的节点id|array|no|[]|
+|selectType|指定选择的类型|string|no|'single',可传递single/multiple|
 |isShowTreeId|指定是否显示节点id|boolean|no|false|
 |itemStyle|指定item项的样式,其中包含三个子项backgroudColor：背景的颜色, fontSize：字体大小, color：字体的颜色|css style|no|{}|
 |selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}|

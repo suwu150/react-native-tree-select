@@ -30,10 +30,18 @@ export default class TreeSelect extends Component {
     this.routes = [];
     this.state = {
       nodesStatus: this._initNodesStatus(),
-      currentNode: props.defaultSelectedId && props.defaultSelectedId[0] || null,
+      currentNode: this._initCurrentNode(),
       searchValue: ''
     };
   }
+
+  _initCurrentNode = () => {
+    const { defaultSelectedId, selectType } = this.props;
+    if (selectType === 'multiple') {
+      return defaultSelectedId || [];
+    }
+    return defaultSelectedId && defaultSelectedId[0] || null;
+  };
 
   _initNodesStatus = () => {
     const { isOpen = false, data, openIds = [], defaultSelectedId = [] } = this.props;
@@ -86,15 +94,27 @@ export default class TreeSelect extends Component {
   };
 
   _onPressCollapse = ({ e, item }) => { // eslint-disable-line
-    const { data } = this.props;
+    const { data, selectType } = this.props;
+    const { currentNode } = this.state;
     const routes = this._find(data, item.id);
     this.setState((state) => {
       const nodesStatus = new Map(state.nodesStatus);
       nodesStatus.set(item && item.id, !nodesStatus.get(item && item.id)); // toggle
-      return {
-        currentNode: item.id,
-        nodesStatus
-      };
+      // 计算currentNode的内容
+
+      if (selectType === 'multiple') {
+        const tempCurrentNode = currentNode.includes(item.id) ?
+          currentNode.filter(nodeid => nodeid !== item.id) : currentNode.concat(item.id)
+        return {
+          currentNode: tempCurrentNode,
+          nodesStatus
+        };
+      } else {
+        return {
+          currentNode: item.id,
+          nodesStatus
+        };
+      }
     }, () => {
       const { onClick } = this.props;
       onClick && onClick({ item, routes });
@@ -102,11 +122,23 @@ export default class TreeSelect extends Component {
   };
 
   _onClickLeaf = ({ e, item }) => { // eslint-disable-line
-    const { onClickLeaf, onClick } = this.props;
+    const { onClickLeaf, onClick, selectType } = this.props;
     const { data } = this.props;
+    const { currentNode } = this.state;
     const routes = this._find(data, item.id);
-    this.setState({
-      currentNode: item.id
+    this.setState((state) => {
+      // 计算currentNode的内容
+      if (selectType === 'multiple') {
+        const tempCurrentNode = currentNode.includes(item.id) ?
+          currentNode.filter(nodeid => nodeid !== item.id) : currentNode.concat(item.id)
+        return {
+          currentNode: tempCurrentNode,
+        };
+      } else {
+        return {
+          currentNode: item.id
+        };
+      }
     }, () => {
       onClick && onClick({ item, routes });
       onClickLeaf && onClickLeaf({ item, routes });
@@ -138,7 +170,8 @@ export default class TreeSelect extends Component {
   };
 
   _renderRow = ({ item }) => {
-    const { isShowTreeId = false, selectedItemStyle, itemStyle, treeNodeStyle } = this.props;
+    const { currentNode } = this.state;
+    const { isShowTreeId = false, selectedItemStyle, itemStyle, treeNodeStyle, selectType = 'single' } = this.props;
     const { backgroudColor, fontSize, color } = itemStyle && itemStyle;
     const openIcon = treeNodeStyle && treeNodeStyle.openIcon;
     const closeIcon = treeNodeStyle && treeNodeStyle.closeIcon;
@@ -146,7 +179,7 @@ export default class TreeSelect extends Component {
     const selectedBackgroudColor = selectedItemStyle && selectedItemStyle.backgroudColor;
     const selectedFontSize = selectedItemStyle && selectedItemStyle.fontSize;
     const selectedColor = selectedItemStyle && selectedItemStyle.color;
-    const isCurrentNode = this.state.currentNode === item.id;
+    const isCurrentNode = selectType === 'multiple' ? currentNode.includes(item.id) : (currentNode === item.id);
 
     if (item && item.children && item.children.length) {
       const isOpen = this.state.nodesStatus && this.state.nodesStatus.get(item && item.id) || false;

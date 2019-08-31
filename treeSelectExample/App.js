@@ -42,6 +42,8 @@ export default class App extends Component {
             // openIds={['A01']}
             defaultSelectedId={['B062']}
             isShowTreeId={false}
+            // selectType="single"
+            selectType="multiple"
             itemStyle={{
               // backgroudColor: '#8bb0ee',
               fontSize: 12,
