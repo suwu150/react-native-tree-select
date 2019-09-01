@@ -16,18 +16,18 @@ export default class App extends Component {
   this.state = {
     result: null
     };
-  };
+  }
 
-  _onClick = ({ item, routes }) => {
-    console.log(item.name);
+  _onClick = ({ item, routes, currentNode }) => {
+    console.log(item.name, currentNode);
     console.log(routes);
     this.setState({
       result: item.name
     });
   };
 
-  _onClickLeaf = ({ item, routes }) => {
-    console.log(item.name);
+  _onClickLeaf = ({ item, routes, currentNode }) => {
+    console.log(item.name, currentNode);
     console.log(routes);
   };
 
