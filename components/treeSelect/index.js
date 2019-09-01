@@ -116,9 +116,8 @@ export default class TreeSelect extends Component {
         };
       }
     }, () => {
-      const { currentNode } = this.state;
       const { onClick } = this.props;
-      onClick && onClick({ item, routes, currentNode });
+      onClick && onClick({ item, routes, currentNode: this.state.currentNode });
     });
   };
 
@@ -141,9 +140,8 @@ export default class TreeSelect extends Component {
         };
       }
     }, () => {
-      const { currentNode } = this.state;
-      onClick && onClick({ item, routes, currentNode });
-      onClickLeaf && onClickLeaf({ item, routes, currentNode });
+      onClick && onClick({ item, routes, currentNode: this.state.currentNode });
+      onClickLeaf && onClickLeaf({ item, routes, currentNode: this.state.currentNode });
     });
   };
 
