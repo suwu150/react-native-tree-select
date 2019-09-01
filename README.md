@@ -179,18 +179,19 @@ import TreeSelect from 'react-native-tree-select';
 ---------------------------------------
 
 |Props|Explain|type|require|default||
-|:-------|:--------|:--------|:-------|:----------||
-|data|数据，树结构数据|array|yes|[]||
+|:-------|:--------|:--------|:-------|:----------|:-------|
+|data|数据，树结构数据|array|yes|[]|-|
 |onClick|点击时的事件，返回点击的节点和节点路径{ item, routes, currentNode }|function|no|no|currentNode为当前选中的节点|
 |onClickLeaf|点击叶子节点时的事件，返回点击的节点和节点路径{ item, routes, currentNode }|function|no|no|currentNode为当前选中的节点|
-|isOpen|是否默认打开所有的节点,优先级高于openIds，当true时忽略openIds|boolean|no|false||
-|openIds|指定默认打开的节点id|array|no|[]||
-|defaultSelectedId|指定默认选中的节点id|array|no|[]||
-|selectType|指定选择的类型|string|no|'single',可传递single/multiple||
-|isShowTreeId|指定是否显示节点id|boolean|no|false||
-|itemStyle|指定item项的样式,其中包含三个子项backgroudColor：背景的颜色, fontSize：字体大小, color：字体的颜色|css style|no|{}||
-|selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}||
-|treeNodeStyle|指定节点处的图标样式，包含两个属性openIcon，closeIcon,支持传icon和image类型|object|no|null||
+|isOpen|是否默认打开所有的节点,优先级高于openIds，当true时忽略openIds|boolean|no|false|-|
+|openIds|指定默认打开的节点id|array|no|[]|-|
+|defaultSelectedId|指定默认选中的节点id|array|no|[]|-|
+|selectType|指定选择的类型|string|no|'single',可传递single/multiple|-|
+|leafCanBeSelected|指定只能够选择叶子节点|boolean|false|-|-|
+|isShowTreeId|指定是否显示节点id|boolean|no|false|-|
+|itemStyle|指定item项的样式,其中包含三个子项backgroudColor：背景的颜色, fontSize：字体大小, color：字体的颜色|css style|no|{}|-|
+|selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}|-|
+|treeNodeStyle|指定节点处的图标样式，包含两个属性openIcon，closeIcon,支持传icon和image类型|object|no|null|-|
 
 3.本地运行
 在本地运行，首先得克隆该项目，使用下面命令进行克隆，[克隆地址](https://github.com/suwu150/react-native-tree-select)
