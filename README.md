@@ -1,15 +1,14 @@
 # react-native-tree-select
 
+react-native-tree-select:树结构选择组件
 
-react-native-tree-select
-树结构选择组件
-
+##### 一、效果展示
 
 ----
 ![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true)
 ![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/shareComponet.gif?raw=true)
 
-项目结构
+##### 二、项目结构
 
 ```js
 
@@ -20,9 +19,9 @@ react-native-tree-select
 
 ```
 
-Example usage:
+##### 三、Example usage:
 ---------------------------------------
-1.基本用法
+###### 3.1 基本用法
 
  首先能够通过如下命令进行安装
 
@@ -175,7 +174,7 @@ import TreeSelect from 'react-native-tree-select';
 ]
 
 ```
-2.传递的Props:
+###### 3.2 传递的Props:
 ---------------------------------------
 
 |Props|Explain|type|require|default||
@@ -193,7 +192,7 @@ import TreeSelect from 'react-native-tree-select';
 |selectedItemStyle|指定点击按钮选中时的样式,其中包含三个子项backgroudColor：选中时的颜色, fontSize：选中时的字体大小, color：选中时字体的颜色|css style|no|{}|-|
 |treeNodeStyle|指定节点处的图标样式，包含两个属性openIcon，closeIcon,支持传icon和image类型|object|no|null|-|
 
-3.本地运行
+###### 3.3 本地运行
 在本地运行，首先得克隆该项目，使用下面命令进行克隆，[克隆地址](https://github.com/suwu150/react-native-tree-select)
   先克隆该项目
   ```
@@ -207,5 +206,5 @@ import TreeSelect from 'react-native-tree-select';
   ```
   react-native run-ios
   ```
-4.组件简介
+###### 3.4 组件简介
 能够按照数据结构进行展开树状结构，通常用来进行展示具有明显层级关系的数据结构
