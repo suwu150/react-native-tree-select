@@ -24,7 +24,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 ```js
 
 --components： treeSelect组件
---treeSelectExample： 组件演示代码
+--example： 组件演示代码
 --.gitignore：git忽略文件
 --README.md：说明文档
 
@@ -209,13 +209,14 @@ import TreeSelect from 'react-native-tree-select';
   ```
   git clone https://github.com/suwu150/react-native-tree-select.git
   ```
-  然后进入项目，cd treeSelectExample进入到演示项目，通过以下命令安装依赖
+  然后进入项目，cd example进入到演示项目，通过以下命令安装依赖
   ```
   npm install
   ```
-  通过以下命令运行项目
+  通过以下命令运行android项目
   ```
-  react-native run-ios
+  npm run android 
+
   ```
 ###### 3.4 组件简介
 能够按照数据结构进行展开树状结构，通常用来进行展示具有明显层级关系的数据结构
