@@ -5997,7 +5997,7 @@ react-native-tree-select@^2.0.5:
   resolved "https://registry.npmjs.org/react-native-tree-select/-/react-native-tree-select-2.0.9.tgz"
   integrity sha512-UmFsXh1cpg/Wlmr297mJTkdJdQnToPGB65FnfLS/bxX8rlVrouypPYK0fC5obKCKwiW3k4NFiEMnj5k2YdkOPw==
 
-react-native-vector-icons@^10.0.2, react-native-vector-icons@>=6.1.0:
+react-native-vector-icons@^10.0.2:
   version "10.0.2"
   resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-10.0.2.tgz"
   integrity sha512-ZwhUkJhIMkGL3cW7IT4sEEHu2AOzerqsRQ73UzXsB+ecBpVK5bRmp0XswiQleZKZalZfs/WIfWLXLfTQHcQo6A==
