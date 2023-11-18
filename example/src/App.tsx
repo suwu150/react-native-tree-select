@@ -15,7 +15,7 @@ export default class App extends Component {
     console.log(item.name, currentNode);
     console.log(routes);
     this.setState({
-      result: item.name
+      result: item.name,
     });
   };
 
@@ -27,7 +27,9 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ marginVertical: 30 }}><Text>{this.state.result}</Text></View>
+        <View style={{ marginVertical: 30 }}>
+          <Text>{this.state.result}</Text>
+        </View>
         <View style={{ width: '100%', flex: 1 }}>
           <TreeSelect
             data={treeselectData}
@@ -45,14 +47,20 @@ export default class App extends Component {
             treeNodeStyle={{
               // openIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-down" />,
               // closeIcon: <Icon size={18} color="#171e99" style={{ marginRight: 10 }} name="ios-arrow-forward" />
-              openIcon: <Image
-                resizeMode="stretch"
-                style={{ width: 18, height: 18 }}
-                source={require('./images/down-circle.png')} />,
-              closeIcon: <Image
-                resizeMode="stretch"
-                style={{ width: 18, height: 18 }}
-                source={require('./images/right-circle.png')} />
+              openIcon: (
+                <Image
+                  resizeMode="stretch"
+                  style={styles.icon}
+                  source={require('./images/down-circle.png')}
+                />
+              ),
+              closeIcon: (
+                <Image
+                  resizeMode="stretch"
+                  style={styles.icon}
+                  source={require('./images/right-circle.png')}
+                />
+              )
             }}
           />
         </View>
@@ -79,7 +87,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   itemStyle: {
-    // backgroudColor: '#8bb0ee',
     fontSize: 12,
     color: '#995962',
   },
@@ -87,5 +94,6 @@ const styles = StyleSheet.create({
     backgroudColor: '#f7edca',
     fontSize: 16,
     color: '#171e99',
-  }
+  },
+  icon: { width: 18, height: 18 },
 });

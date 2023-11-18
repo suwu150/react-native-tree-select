@@ -5990,12 +5990,11 @@ react-native-builder-bob@^0.20.0:
     react "18.2.0"
     react-native "0.72.7"
     react-native-tree-select "^2.0.5"
-    react-native-vector-icons "^10.0.2"
 
-react-native-tree-select@^2.0.5:
-  version "2.0.9"
-  resolved "https://registry.npmjs.org/react-native-tree-select/-/react-native-tree-select-2.0.9.tgz"
-  integrity sha512-UmFsXh1cpg/Wlmr297mJTkdJdQnToPGB65FnfLS/bxX8rlVrouypPYK0fC5obKCKwiW3k4NFiEMnj5k2YdkOPw==
+react-native-tree-select@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/react-native-tree-select/-/react-native-tree-select-2.2.0.tgz"
+  integrity sha512-g1f38CRdBBqarfgFQAG1QOuD7S/OZBKjdb5Zmj+c47KexyR4h7ENX0cqPDUyRZMI9YFpMOjcmcgPufpskqqc0g==
 
 react-native-vector-icons@^10.0.2:
   version "10.0.2"
@@ -6054,7 +6053,7 @@ react-shallow-renderer@^16.15.0:
     object-assign "^4.1.1"
     react-is "^16.12.0 || ^17.0.0 || ^18.0.0"
 
-"react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@18.2.0:
   version "18.2.0"
   dependencies:
     loose-envify "^1.1.0"
