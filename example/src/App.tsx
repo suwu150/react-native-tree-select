@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   itemStyle: {
-    // backgroudColor: '#8bb0ee',
     fontSize: 12,
     color: '#995962',
   },
@@ -87,5 +86,5 @@ const styles = StyleSheet.create({
     backgroudColor: '#f7edca',
     fontSize: 16,
     color: '#171e99',
-  }
+  },
 });
