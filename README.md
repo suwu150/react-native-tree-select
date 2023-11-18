@@ -1,6 +1,8 @@
+
 # react-native-tree-select
 
 react-native-tree-select:树结构选择组件
+
 
 
 请注意，在组件中使用了图片组件react-native-vector-icons的依赖，使用时，请添加该依赖项。
