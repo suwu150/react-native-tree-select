@@ -1,6 +1,6 @@
 {
   "name": "react-native-tree-select",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "我们提供了高度定制和高效的react-native-tree-select组件选择。助您方便快捷的方式实现多种复杂的树形结构需求的react native的开发速度。",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
