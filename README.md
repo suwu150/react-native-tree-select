@@ -16,8 +16,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 ##### 一、效果展示
 
 ----
-![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/react-native-tree-select.gif?raw=true)
-![The final rendering](https://github.com/suwu150/react-native-tree-select/blob/master/shareComponet.gif?raw=true)
+
+![react-native-tree-select](https://github.com/suwu150/react-native-tree-select/assets/20339760/0b2b0f55-f548-413a-bd27-cfa1f785b6a9)
+![shareComponet](https://github.com/suwu150/react-native-tree-select/assets/20339760/b7955b08-173b-4215-bed4-251f655497c6)
+
 
 ##### 二、项目结构
 
